@@ -38,7 +38,7 @@ export default {
   background-color: white;
   color: #EF3054;
   margin: 12px;
-  border-radius: 2px;
+  border-radius: 4px;
   display: flex;
   width: auto;
   flex-direction: row;
@@ -55,6 +55,8 @@ export default {
 }
 
 .delete-song {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   background-color: #EF3054;
   color: white;
   font-size: 1em;

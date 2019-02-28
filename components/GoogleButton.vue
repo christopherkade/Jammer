@@ -22,7 +22,7 @@ export default {
   color: #1e1e24;
   width: auto;
   padding: 8px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: thin solid #888;
   white-space: nowrap;
 }

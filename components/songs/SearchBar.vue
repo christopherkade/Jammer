@@ -111,11 +111,18 @@ export default {
       }
     },
     onEnter() {
-      this.search = this.results[this.arrowCounter]
+      // When no results are shown
+      if (this.results.length === 0) return
+
+      // When the arrow keys were not used
+      if (this.arrowCounter === -1) {
+        this.search = this.results.find(song => song.name === this.search.name)
+        if (!this.search) this.search = {}
+      } else {
+        this.search = this.results[this.arrowCounter]
+      }
       this.isOpen = false
       this.arrowCounter = -1
-
-      this.$emit('select', this.search)
     },
     handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {

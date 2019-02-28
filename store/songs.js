@@ -32,6 +32,8 @@ export const actions = {
     newSongList.push(song)
     firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
       commit('setSongs', newSongList)
+    }).catch((err) => {
+      console.error('Error while deleting a song: ', err)
     })
   },
   /**
@@ -45,6 +47,8 @@ export const actions = {
       const songList = snapshot.data().list
       commit('setSongs', songList)
       commit('setLoading', false)
+    }).catch((err) => {
+      console.error('Error while getting songs: ', err)
     })
   },
   deleteSong({ rootState, getters, commit }, delSong) {
@@ -53,6 +57,8 @@ export const actions = {
     const newSongList = currentSongList.filter(song => song.mbid !== delSong.mbid).slice()
     firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
       commit('setSongs', newSongList)
+    }).catch((err) => {
+      console.error('Error while deleting a song: ', err)
     })
   }
 }

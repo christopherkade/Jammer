@@ -45,6 +45,7 @@ export default {
   background-color: #EF3054;
   margin: 12px;
   height: 150px;
+  border-radius: 4px;
 }
 
 .dashboard-button:hover {
