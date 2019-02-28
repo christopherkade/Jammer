@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+const firebase = require('firebase/app')
+require('firebase/auth')
 
 export default ({ store, redirect, route }) => {
   if (!firebase.apps.length) {
@@ -18,11 +19,9 @@ export default ({ store, redirect, route }) => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user && route.fullPath === '/') {
         store.state.user = user
-        console.log('AUTH OK: ', store.state.user.email)
         localStorage.setItem('user', JSON.stringify(user))
         store.dispatch('auth/redirectUser', '/dashboard')
       } else if (!user) {
-        console.log('AUTH NOT OK')
         localStorage.setItem('user', null)
         store.state.user = null
         store.dispatch('auth/redirectUser', '/')

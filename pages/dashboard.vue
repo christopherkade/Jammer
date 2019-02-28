@@ -1,6 +1,9 @@
 <template>
   <section class="section dashboard-section">
-    <div class="columns is-centered is-multiline">
+    <h1 class="title dashboard-greeting">
+      Hello {{ $store.state.user.displayName }}
+    </h1>
+    <div class="columns is-centered is-multiline nav-columns">
       <nuxt-link to="/songs" class="column is-2 dashboard-button">
         Manage my songs
       </nuxt-link>
@@ -18,12 +21,21 @@ export default {
 </script>
 
 <style>
+.dashboard-greeting {
+  color: white;
+  text-align: center;
+}
+
 .dashboard-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0;
   height: 90%;
+}
+
+.nav-columns {
+  margin-top: 20px;
 }
 
 .dashboard-button {

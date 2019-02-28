@@ -3,7 +3,7 @@
     <div class="field has-addons">
       <div class="control">
         <input
-          v-model="search"
+          v-model="search.name"
           class="input"
           type="text"
           @input="onChange"
@@ -30,7 +30,7 @@
             :class="{ 'is-active': i === arrowCounter }"
             @click="setResult(result)"
           >
-            {{ result }}
+            {{ result.name }} - {{ result.artist }}
           </li>
         </ul>
       </div>
@@ -59,7 +59,7 @@ export default {
   },
   data() {
     return {
-      search: '',
+      search: {},
       results: [],
       isOpen: false,
       isLoading: false,
@@ -83,18 +83,17 @@ export default {
   },
   methods: {
     onChange() {
-      this.$emit('input', this.search)
+      this.$emit('input', this.search.name)
 
       if (this.isAsync) {
         this.isLoading = true
       } else {
-        // Data is sync, we can search our flat array
         this.filterResults()
         this.isOpen = true
       }
     },
     filterResults() {
-      this.results = this.items.filter(item => item.toLowerCase().indexOf(this.search.toLowerCase()) > -1)
+      this.results = this.items.filter(item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1)
     },
     setResult(result) {
       this.search = result
@@ -126,7 +125,7 @@ export default {
     handleSongSelection() {
       this.$emit('select', this.search)
       this.isOpen = false
-      this.search = ''
+      this.search = {}
     }
   }
 }
@@ -155,6 +154,8 @@ export default {
 
 .search-button {
   background-color: #EF3054;
+  color: white;
+  font-weight: bold;
 }
 
 .search-button:hover {

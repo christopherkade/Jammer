@@ -1,28 +1,48 @@
 <template>
   <section class="section">
-    <search-bar :isAsync="false" :items="data" @input="userInput" @select="songSelected" />
+    <search-bar :is-async="true" :items="data" @input="userInput" @select="songSelected" />
+    <song-list :songs="$store.state.songs.songs" />
   </section>
 </template>
 
 <script>
-import SearchBar from '@/components/SearchBar.vue'
+import axios from 'axios'
+import SearchBar from '@/components/songs/SearchBar.vue'
+import SongList from '@/components/songs/SongList.vue'
 
 export default {
   middleware: 'auth',
   components: {
-    SearchBar
+    SearchBar,
+    SongList
   },
   data() {
     return {
-      data: ['Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']
+      data: []
     }
   },
+  mounted() {
+    this.$store.dispatch('songs/getSongs', this.$store.state.user)
+  },
   methods: {
+    /**
+     * Called when the user inputs in the search field
+     */
     userInput(input) {
-      console.log('Searched:', input)
+      // TODO: Env variable with API key
+      const root = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=db88a0670af42e11576ad65143a23914&format=json`
+      axios.get(`${root}`)
+        .then((res) => {
+          this.data = res.data.results.trackmatches.track
+        }).catch((err) => {
+          console.error('ERROR', err)
+        })
     },
+    /**
+     * Calls the action to save the selected song with Firebase
+     */
     songSelected(song) {
-      console.log('Selected song ', song)
+      this.$store.dispatch('songs/addSong', song)
     }
   }
 }

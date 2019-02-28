@@ -1,20 +1,9 @@
-import firebase from 'firebase'
+const firebase = require('firebase/app')
+require('firebase/auth')
 
 export const state = () => ({
   user: {}
 })
-
-export const mutations = {
-  setUser(state, user) {
-    state.user = user
-  }
-}
-
-export const getters = {
-  getUser(state, getters) {
-    return state.user
-  }
-}
 
 export const actions = {
   googleSignIn(context) {
@@ -30,7 +19,6 @@ export const actions = {
     })
   },
   signOut(context) {
-    console.log('Signing out')
     state.user = null
     firebase.auth().signOut()
   },
