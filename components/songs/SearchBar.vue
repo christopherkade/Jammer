@@ -1,9 +1,10 @@
 <template>
   <div class="autocomplete">
     <div class="field has-addons">
-      <div class="control">
+      <div class="control search-control">
         <input
           v-model="search.name"
+          placeholder="Add a new song"
           class="input"
           type="text"
           @input="onChange"
@@ -132,6 +133,10 @@ export default {
 </script>
 
 <style>
+.autocomplete {
+  text-align: center;
+}
+
 .autocomplete-results {
   padding: 0;
   margin: 0;
@@ -145,6 +150,10 @@ export default {
   text-align: left;
   padding: 4px 2px;
   cursor: pointer;
+}
+
+.search-control {
+  width: 100%;
 }
 
 .autocomplete-result:hover {

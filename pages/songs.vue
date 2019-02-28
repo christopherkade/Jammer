@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="section songs-section">
     <search-bar :is-async="true" :items="data" @input="userInput" @select="songSelected" />
     <song-list :songs="$store.state.songs.songs" />
   </section>
@@ -49,4 +49,13 @@ export default {
 </script>
 
 <style>
+.songs-section {
+  padding: 120px 200px;
+}
+
+@media only screen and (max-width: 1028px) {
+  .songs-section {
+    padding: 40px;
+  }
+}
 </style>

@@ -3,18 +3,25 @@ require('firebase/firestore')
 
 export const state = () => ({
   songs: [],
+  isLoading: false,
   dbRef: null
 })
 
 export const getters = {
   getUserSongs(state) {
     return state.songs
+  },
+  getNumSongs(state) {
+    return state.songs.length
   }
 }
 
 export const mutations = {
   setSongs(state, songs) {
     state.songs = songs
+  },
+  setLoading(state, loading) {
+    state.isLoading = loading
   }
 }
 
@@ -32,10 +39,20 @@ export const actions = {
    * @param {*} param0
    * @param {Object} user
    */
-  getSongs({ commit, state }, user) {
+  getSongs({ commit }, user) {
+    commit('setLoading', true)
     firebase.firestore().collection('song-lists').doc(user.uid).get().then((snapshot) => {
       const songList = snapshot.data().list
       commit('setSongs', songList)
+      commit('setLoading', false)
+    })
+  },
+  deleteSong({ rootState, getters, commit }, delSong) {
+    const user = rootState.user
+    const currentSongList = getters.getUserSongs.slice()
+    const newSongList = currentSongList.filter(song => song.mbid !== delSong.mbid).slice()
+    firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
+      commit('setSongs', newSongList)
     })
   }
 }

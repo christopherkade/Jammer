@@ -1,8 +1,5 @@
 <template>
   <section class="section dashboard-section">
-    <h1 class="title dashboard-greeting">
-      Hello {{ $store.state.user.displayName }}
-    </h1>
     <div class="columns is-centered is-multiline nav-columns">
       <nuxt-link to="/songs" class="column is-2 dashboard-button">
         Manage my songs
