@@ -48,18 +48,22 @@ export default {
 }
 
 .contribute {
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
+  width: 100%;
+  margin-top: 25vh;
   color: white;
 }
 
 @media only screen and (max-width: $breakpoint-medium) {
   .contribute {
     font-size: .9em;
+    margin-top: 15vh;
   }
 }
 
+@media only screen and (max-width: $breakpoint-small) {
+  .contribute {
+    font-size: .9em;
+    margin-top: 10vh;
+  }
+}
 </style>
