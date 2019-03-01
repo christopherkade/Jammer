@@ -62,8 +62,7 @@ export default {
 
 @media only screen and (max-width: $breakpoint-small) {
   .contribute {
-    font-size: .9em;
-    margin-top: 10vh;
+    display: none;
   }
 }
 </style>
