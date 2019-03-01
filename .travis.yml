@@ -1,11 +1,9 @@
 language: 'node_js'
 node_js: '8'
-
 before_script:
-  - npm run lint
-  - SONG_API_KEY=$SONG_API_KEY npm run generate
-  - cp ./dist/index.html ./dist/404.html
-
+- npm run lint
+- npm run generate
+- cp ./dist/index.html ./dist/404.html
 deploy:
   provider: pages
   skip-cleanup: true
@@ -15,3 +13,6 @@ deploy:
   target_branch: gh-pages
   on:
     branch: master
+env:
+  global:
+    secure: ce3KxjfjT8aAd4bNOD6Zi9TyI3bdVy40/xHBF6govxAw3pEyr+Y2jP7OOV12vdnFuJbKi4vAomqRE+nbaw5sOvipPXnzshVJ+19UvL19pD2iciKgny+ZfxF7jF9Nf/Yj0wQYRVC5yc655uB8p98MB/wdfRPyvEFNBJ3l1nM0ia9cK4/CLfpw5zwmZL68YYF14/FqyvgYtbLomVwa+L8VqtEkqaXbxasPHvffHCSxYCOUuuWY03CpgOWr1tEGtyLg5FHs1+VumPnQDeH8Zkf03nKgO5jjv/Jiwci99vecnVvSP26M7CFwhM2FqYbG08G0lBLkIUS710Qp/ggZkM2DcJDvPzpz8feVbKnZ6ZIFg6DL8QUUD/rbCEW0LpjcWOMo0iHLDlECYY7tWKsCC9wtO+adrW7AQrcS/56i1j6N7ZHhNQL/5WhHKwqnBkYFshDdFpk+xh5ex++pJxXJAA55+kU8PK/K0+jH2zCCfDuWREyV0rTM1NVjPYcr/dXPR4EaQR7U0TeFRkwciyAaJ6D1CQ0I0Oarjqep6zpIlfRsLocm36E7/9qSeBHsNfvY6c8ZU87JBAbixs7Iq1ELMI+GrnzovyXk4M9cr1h13Eo8pwTmULrxvTa4b/8yKyAjuxU4thsmq7OYt02uk00H3wQ3v7B7/fbo9yq3YNBDFcBrQcg=
