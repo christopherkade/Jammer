@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .customBtn {
   display: flex;
   flex-direction: row;
@@ -23,7 +23,7 @@ export default {
   text-align: center;
   margin: 0 auto;
   background: white;
-  color: #1e1e24;
+  color: $primary;
   width: 200px;
   padding: 8px;
   border-radius: 4px;
@@ -36,7 +36,6 @@ export default {
 }
 
 span.label {
-  font-family: serif;
   font-weight: normal;
 }
 

@@ -52,14 +52,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .songs-section {
-  padding: 120px 200px;
+  padding: $section-padding-default;
 }
 
-@media only screen and (max-width: 1028px) {
+@media only screen and (max-width: $breakpoint-large) {
   .songs-section {
-    padding: 40px;
+    padding: $section-padding-large;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-medium) {
+  .songs-section {
+    padding: $section-padding-medium;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-small) {
+  .songs-section {
+    padding: $section-padding-small;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-extra-small) {
+  .songs-section {
+    padding: $section-padding-extra-small;
   }
 }
 </style>

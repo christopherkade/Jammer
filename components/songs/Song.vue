@@ -33,10 +33,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .song-card {
   background-color: white;
-  color: #EF3054;
+  color: $secondary;
   margin: 12px;
   border-radius: 4px;
   display: flex;
@@ -51,14 +51,14 @@ export default {
 }
 
 .song-artist {
-  color: #1e1e24;
+  color: $primary;
 }
 
 .delete-song {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: #EF3054;
-  color: white;
+  background-color: $secondary;
+  color: $text;
   font-size: 1em;
   padding: 40px 20px;
 }

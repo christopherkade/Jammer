@@ -11,6 +11,7 @@
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasicExample"
+        :class="{ 'is-active': isActive }"
         @click="isActive = !isActive"
       >
         <span aria-hidden="true" />
@@ -48,9 +49,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .button-signout {
-  background-color: #EF3054;
-  color: white;
+  background-color: $secondary;
+  color: $text;
 }
 </style>

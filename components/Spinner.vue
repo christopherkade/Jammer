@@ -2,12 +2,12 @@
   <div class="spinner" />
 </template>
 
-<style>
+<style lang="scss">
 .spinner {
   width: 40px;
   height: 40px;
   margin: 100px auto;
-  background-color: #EF3054;
+  background-color: $secondary;
 
   border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;

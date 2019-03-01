@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .landing-section {
   text-align: center;
 }
@@ -37,9 +37,8 @@ export default {
 
 .title {
   display: block;
-  font-weight: 300;
   font-size: 4em;
-  color:#EF3054;
+  color: $secondary;
   letter-spacing: 1px;
 }
 </style>

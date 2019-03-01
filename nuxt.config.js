@@ -35,7 +35,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/theme.scss'
+    '@/assets/scss/_main.scss'
   ],
 
   /*
@@ -49,9 +49,16 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma'
+    '@nuxtjs/bulma',
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    scss: [
+      'assets/scss/_variables.scss',
+      'assets/scss/_global.scss'
+    ]
+  },
 
   /*
   ** Build configuration

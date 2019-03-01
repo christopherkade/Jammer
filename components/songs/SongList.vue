@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="this.$store.state.songs.songs.length > 0">
-      <h1 class="title songs-title">
+      <h1 class="songs-title">
         My songs
       </h1>
       <div v-for="song in songs" :key="song.name">
@@ -37,11 +37,12 @@ export default {
 .songs-title {
   color: white;
   margin-top: 140px;
+  font-size: 2em;
 }
 
 .not-found {
   text-align: center;
   font-size: 2em;
-  margin-top: 40px;
+  margin-top: 140px;
 }
 </style>

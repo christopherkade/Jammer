@@ -144,7 +144,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .autocomplete {
   text-align: center;
 }
@@ -171,13 +171,13 @@ export default {
 }
 
 .autocomplete-result:hover {
-  background-color: #4AAE9B;
-  color: white;
+  background-color: $secondary;
+  color: $text;
 }
 
 .search-button {
-  background-color: #EF3054;
-  color: white;
+  background-color: $secondary;
+  color: $text;
   font-weight: bold;
 }
 
@@ -187,7 +187,7 @@ export default {
 
 .autocomplete-result.is-active,
   .autocomplete-result:hover {
-    background-color: #4AAE9B;
-    color: white;
+    background-color: $secondary;
+    color: $text;
 }
 </style>

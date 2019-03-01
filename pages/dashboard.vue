@@ -21,9 +21,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .dashboard-greeting {
-  color: white;
+  color: $text;
   text-align: center;
 }
 
@@ -42,14 +42,14 @@ export default {
 .dashboard-button {
   text-align: center;
   font-size: 1.8em;
-  color: white;
-  background-color: #EF3054;
+  color: $text;
+  background-color: $secondary;
   margin: 12px;
   border-radius: 4px;
 }
 
 .dashboard-button:hover {
-  color: white;
+  color: $text;
   opacity: .75;
 }
 
