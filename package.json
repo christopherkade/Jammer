@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "test": "jest"
+    "test": "echo 'No tests specified yet'"
   },
   "dependencies": {
     "@nuxtjs/bulma": "^1.2.1",
