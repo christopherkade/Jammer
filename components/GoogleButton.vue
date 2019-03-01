@@ -30,13 +30,16 @@ export default {
   border: thin solid #888;
   white-space: nowrap;
 }
-#customBtn:hover {
+
+.customBtn:hover {
   cursor: pointer;
 }
+
 span.label {
   font-family: serif;
   font-weight: normal;
 }
+
 span.icon {
   display: inline-block;
   vertical-align: middle;
@@ -44,6 +47,7 @@ span.icon {
   width: 50px;
   height: 50px;
 }
+
 span.buttonText {
   display: inline-block;
   vertical-align: middle;

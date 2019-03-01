@@ -9,7 +9,7 @@ export const actions = {
   googleSignIn({ commit }) {
     const provider = new firebase.auth.GoogleAuthProvider()
 
-    firebase.auth().signInWithPopup(provider).catch(function (error) {
+    firebase.auth().signInWithPopup(provider).catch((error) => {
       commit('notification/setNotification', {
         message: error.message,
         type: 'is-danger'

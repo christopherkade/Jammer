@@ -21,7 +21,7 @@ export default ({ store, redirect, route }) => {
         store.state.user = user
         localStorage.setItem('user', JSON.stringify(user))
         store.dispatch('auth/redirectUser', '/dashboard')
-      } else if (!user) {
+      } else if (!user && route.fullPath !== '/') {
         localStorage.setItem('user', null)
         store.state.user = null
         store.dispatch('auth/redirectUser', '/')
