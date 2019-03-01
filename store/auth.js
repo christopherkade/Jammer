@@ -6,19 +6,24 @@ export const state = () => ({
 })
 
 export const actions = {
-  googleSignIn({ commit }) {
+  googleSignIn({ commit, dispatch }) {
     const provider = new firebase.auth.GoogleAuthProvider()
 
-    firebase.auth().signInWithPopup(provider).catch((error) => {
+    firebase.auth().signInWithPopup(provider).then((res) => {
+      state.user = res.user
+      dispatch('redirectUser', '/dashboard')
+    }).catch((error) => {
       commit('notification/setNotification', {
         message: error.message,
         type: 'is-danger'
       })
     })
   },
-  signOut(context) {
+  signOut({ dispatch }) {
     state.user = null
-    firebase.auth().signOut()
+    firebase.auth().signOut().then(() => {
+      dispatch('redirectUser', '/')
+    })
   },
   redirectUser(context, path) {
     this.$router.replace({ path })

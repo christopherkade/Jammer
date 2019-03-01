@@ -1,7 +1,7 @@
 const firebase = require('firebase/app')
 require('firebase/auth')
 
-export default ({ store, redirect, route }) => {
+export default ({ store, route }) => {
   if (!firebase.apps.length) {
     const config = {
       apiKey: 'AIzaSyDFS8Wk6B7ontvZeargY3z7k0u92EJvlN0',
@@ -18,12 +18,9 @@ export default ({ store, redirect, route }) => {
   window.onNuxtReady(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user && route.fullPath === '/') {
-        store.state.user = user
         localStorage.setItem('user', JSON.stringify(user))
-        store.dispatch('auth/redirectUser', '/dashboard')
       } else if (!user && route.fullPath !== '/') {
         localStorage.setItem('user', null)
-        store.state.user = null
         store.dispatch('auth/redirectUser', '/')
       }
     })
