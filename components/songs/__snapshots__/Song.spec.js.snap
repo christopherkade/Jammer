@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[UNIT] Testing the Song component Snapshot testing 1`] = `
+"<div class=\\"song-card\\"><h1 class=\\"song-title\\">
+    mockedName
+    <h2 class=\\"song-artist\\">
+      mockedArtist
+    </h2></h1> <!----></div>"
+`;
