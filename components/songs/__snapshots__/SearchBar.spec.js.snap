@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[UNIT] Testing the Search Bar component Snapshot testing 1`] = `
-"<div class=\\"autocomplete\\"><div class=\\"field has-addons\\"><div class=\\"control search-control\\"><input placeholder=\\"Add a new song\\" type=\\"text\\" class=\\"input is-medium\\"> <ul class=\\"autocomplete-results\\"><li class=\\"loading\\">
+"<div class=\\"autocomplete\\"><div class=\\"field has-addons\\"><div class=\\"control search-control\\"><input placeholder=\\"Add a new song\\" type=\\"text\\" class=\\"input\\"> <ul class=\\"autocomplete-results\\"><li class=\\"loading\\">
           Loading results...
         </li></ul></div> <div class=\\"control\\"><a class=\\"button is-rounded search-button\\">
         +
