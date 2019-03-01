@@ -36,7 +36,7 @@ export default {
 <style>
 .songs-title {
   color: white;
-  margin-top: 40px;
+  margin-top: 140px;
 }
 
 .not-found {

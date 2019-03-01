@@ -16,7 +16,7 @@ export const actions = {
       commit('notification/setNotification', {
         message: error.message,
         type: 'is-danger'
-      })
+      }, { root: true })
     })
   },
   signOut({ dispatch }) {

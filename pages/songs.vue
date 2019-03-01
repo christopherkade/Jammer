@@ -38,7 +38,7 @@ export default {
             this.$store.commit('notification/setNotification', {
               message: err,
               type: 'is-danger'
-            })
+            }, { root: true })
           })
       }
     },

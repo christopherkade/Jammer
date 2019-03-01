@@ -30,14 +30,33 @@ export const actions = {
     if (song.name) {
       const user = rootState.user
       const newSongList = getters.getUserSongs.slice()
+
+      // Check if the song selected is already in our list
+      let duplicate = false
+      newSongList.map((listSong) => {
+        if (listSong.mbid === song.mbid) {
+          duplicate = true
+        }
+      })
+
+      // If it is, display a notification and abort the action
+      if (duplicate) {
+        commit('notification/setNotification', {
+          message: "The song you've selected is already in your list",
+          type: 'is-info'
+        }, { root: true })
+        return
+      }
+
       newSongList.push(song)
+
       firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
         commit('setSongs', newSongList)
       }).catch((err) => {
         commit('notification/setNotification', {
           message: err,
           type: 'is-danger'
-        })
+        }, { root: true })
       })
     }
   },
@@ -55,7 +74,7 @@ export const actions = {
       commit('notification/setNotification', {
         message: err,
         type: 'is-danger'
-      })
+      }, { root: true })
     }).finally(() => commit('setLoading', false))
   },
   deleteSong({ rootState, getters, commit }, delSong) {
@@ -68,7 +87,7 @@ export const actions = {
       commit('notification/setNotification', {
         message: err,
         type: 'is-danger'
-      })
+      }, { root: true })
     })
   }
 }

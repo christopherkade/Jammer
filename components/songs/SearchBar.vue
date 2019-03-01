@@ -5,7 +5,7 @@
         <input
           v-model="search.name"
           placeholder="Add a new song"
-          class="input is-medium"
+          class="input"
           type="text"
           @input="onChange"
           @keydown.down="onArrowDown"
@@ -92,6 +92,11 @@ export default {
         this.filterResults()
         this.isOpen = true
       }
+
+      if (this.search.name.length === 0) {
+        this.isLoading = false
+        this.isOpen = false
+      }
     },
     filterResults() {
       this.results = this.items.filter(item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1)
@@ -150,6 +155,8 @@ export default {
   border: 1px solid #eeeeee;
   height: 120px;
   overflow: auto;
+  position: absolute;
+  width: 100%
 }
 
 .autocomplete-result {
@@ -172,7 +179,6 @@ export default {
   background-color: #EF3054;
   color: white;
   font-weight: bold;
-  height: 100%;
 }
 
 .search-button:hover {
