@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted() {
-    // Fix call stack bug
+    // TODO: Fix call stack bug
     this.$store.dispatch('songs/getSongs', this.$store.state.user)
   },
   methods: {
@@ -31,8 +31,7 @@ export default {
      */
     userInput(input) {
       if (input.length > 0) {
-        const root = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=${process.env.SONG_API_KEY}&format=json`
-        axios.get(`${root}`)
+        axios.get(`https://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=db88a0670af42e11576ad65143a23914&format=json`)
           .then((res) => {
             this.data = res.data.results.trackmatches.track
           }).catch((err) => {

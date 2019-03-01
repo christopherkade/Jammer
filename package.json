@@ -5,17 +5,16 @@
   "author": "christopherkade",
   "private": true,
   "scripts": {
-    "dev": "DEPLOY_ENV=dev nuxt",
-    "build": "nuxt build",
+    "dev": "nuxt",
+    "build": "DEPLOY_ENV=GH_PAGES nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "DEPLOY_ENV=GH_PAGES nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "test": "echo 'No tests specified yet'"
   },
   "dependencies": {
     "@nuxtjs/bulma": "^1.2.1",
-    "@nuxtjs/dotenv": "^1.3.0",
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "firebase": "^5.8.4",

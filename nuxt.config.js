@@ -1,10 +1,10 @@
 const pkg = require('./package')
 
-const routerBase = process.env.DEPLOY_ENV === 'dev' ? {} : {
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/Jammer/'
   }
-}
+} : {}
 
 module.exports = {
   mode: 'spa',
@@ -50,8 +50,7 @@ module.exports = {
   */
   modules: [
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/bulma'
   ],
 
   /*
