@@ -1,10 +1,10 @@
 const pkg = require('./package')
 
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+const routerBase = process.env.DEPLOY_ENV === 'dev' ? {} : {
   router: {
     base: '/Jammer/'
   }
-} : {}
+}
 
 module.exports = {
   mode: 'spa',
