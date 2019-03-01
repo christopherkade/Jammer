@@ -2,7 +2,7 @@
   <div class="match-search">
     <div class="field has-addons">
       <div class="control search-control">
-        <input v-model="emailInput" class="input" type="email" placeholder="Musician's Email">
+        <input v-model="emailInput" class="input" type="email" placeholder="Musician's Email" :disabled="this.$store.state.match.matchUsers.length === 1">
       </div>
       <div class="control">
         <a class="button is-rounded search-button" @click="handleUserInput">
@@ -22,6 +22,8 @@ export default {
   },
   methods: {
     handleUserInput() {
+      if (this.emailInput.length === 0) return
+
       this.$emit('select', this.emailInput)
       this.emailInput = ''
     }

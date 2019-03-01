@@ -50,7 +50,7 @@ export const actions = {
 
       newSongList.push(song)
 
-      firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
+      firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList, owner: user.email }, { merge: true }).then((snapshot) => {
         commit('setSongs', newSongList)
       }).catch((err) => {
         commit('notification/setNotification', {
@@ -68,6 +68,10 @@ export const actions = {
   getSongs({ commit }, user) {
     commit('setLoading', true)
     firebase.firestore().collection('song-lists').doc(user.uid).get().then((snapshot) => {
+      // On first connection
+      if (!snapshot.data()) {
+        return
+      }
       const songList = snapshot.data().list
       commit('setSongs', songList)
     }).catch((err) => {

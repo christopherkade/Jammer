@@ -3,6 +3,7 @@
     <search-bar @select="onUserInput" />
     <email-list />
     <presentation />
+    <song-list :songs="$store.state.match.matchingSongs" />
   </section>
 </template>
 
@@ -10,17 +11,26 @@
 import Presentation from '@/components/match/Presentation.vue'
 import SearchBar from '@/components/match/SearchBar.vue'
 import EmailList from '@/components/match/EmailList.vue'
+import SongList from '@/components/match/SongList.vue'
 
 export default {
   components: {
     Presentation,
     SearchBar,
-    EmailList
+    EmailList,
+    SongList
   },
   middleware: 'auth',
+  created() {
+    if (this.$store.state.songs.songs.length === 0) {
+      this.$store.dispatch('songs/getSongs', this.$store.state.user, { root: true })
+    }
+  },
   methods: {
     onUserInput(email) {
-      this.$store.commit('match/addMatchEmail', email)
+      // TODO: Handle multiple users
+      // Get user's songs based on email
+      this.$store.dispatch('match/getMatchSongs', email)
     }
   }
 }
