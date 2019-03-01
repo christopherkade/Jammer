@@ -5,7 +5,7 @@
         <input
           v-model="search.name"
           placeholder="Add a new song"
-          class="input"
+          class="input is-medium"
           type="text"
           @input="onChange"
           @keydown.down="onArrowDown"
@@ -172,6 +172,7 @@ export default {
   background-color: #EF3054;
   color: white;
   font-weight: bold;
+  height: 100%;
 }
 
 .search-button:hover {

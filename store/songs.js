@@ -27,17 +27,19 @@ export const mutations = {
 
 export const actions = {
   addSong({ rootState, getters, commit }, song) {
-    const user = rootState.user
-    const newSongList = getters.getUserSongs.slice()
-    newSongList.push(song)
-    firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
-      commit('setSongs', newSongList)
-    }).catch((err) => {
-      commit('notification/setNotification', {
-        message: err,
-        type: 'is-danger'
+    if (song.name) {
+      const user = rootState.user
+      const newSongList = getters.getUserSongs.slice()
+      newSongList.push(song)
+      firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
+        commit('setSongs', newSongList)
+      }).catch((err) => {
+        commit('notification/setNotification', {
+          message: err,
+          type: 'is-danger'
+        })
       })
-    })
+    }
   },
   /**
    * Get the list of songs for a given user
@@ -49,13 +51,12 @@ export const actions = {
     firebase.firestore().collection('song-lists').doc(user.uid).get().then((snapshot) => {
       const songList = snapshot.data().list
       commit('setSongs', songList)
-      commit('setLoading', false)
     }).catch((err) => {
       commit('notification/setNotification', {
         message: err,
         type: 'is-danger'
       })
-    })
+    }).finally(() => commit('setLoading', false))
   },
   deleteSong({ rootState, getters, commit }, delSong) {
     const user = rootState.user

@@ -1,6 +1,8 @@
 <template>
   <section class="section">
-    Match
+    <h1 class="title coming-soon">
+      Song matching will be coming soon
+    </h1>
   </section>
 </template>
 
@@ -11,4 +13,8 @@ export default {
 </script>
 
 <style>
+.coming-soon {
+  text-align: center;
+  color: white;
+}
 </style>

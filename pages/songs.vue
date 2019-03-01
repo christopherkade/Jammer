@@ -30,9 +30,8 @@ export default {
      * Called when the user inputs in the search field
      */
     userInput(input) {
-      // TODO: Env variable with API key
       if (input.length > 0) {
-        const root = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=db88a0670af42e11576ad65143a23914&format=json`
+        const root = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=${process.env.SONG_API_KEY}&format=json`
         axios.get(`${root}`)
           .then((res) => {
             this.data = res.data.results.trackmatches.track

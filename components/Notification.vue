@@ -16,4 +16,10 @@
   width: 500px;
   padding: 0;
 }
+
+@media only screen and (max-width: 1028px) {
+  .notification {
+    width: auto;
+  }
+}
 </style>
