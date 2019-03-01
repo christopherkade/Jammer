@@ -1,24 +1,21 @@
 <template>
   <section class="section">
-    <h1 class="coming-soon">
-      Song matching will be coming soon
-    </h1>
+    <presentation />
   </section>
 </template>
 
 <script>
+import Presentation from '@/components/match/Presentation.vue'
+
 export default {
+  components: {
+    Presentation
+  },
   middleware: 'auth'
 }
 </script>
 
 <style lang="scss">
-.coming-soon {
-  text-align: center;
-  color: white;
-  font-size: 2em;
-}
-
 @media only screen and (max-width: $breakpoint-large) {
   .songs-section {
     padding: $section-padding-large;

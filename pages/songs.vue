@@ -22,7 +22,6 @@ export default {
     }
   },
   mounted() {
-    // TODO: Fix call stack bug
     this.$store.dispatch('songs/getSongs', this.$store.state.user)
   },
   methods: {

@@ -8,7 +8,7 @@
         <song :song="song" />
       </div>
     </div>
-    <div v-else class="not-found">
+    <div v-else-if="!this.$store.state.songs.isLoading" class="not-found">
       No songs found, you can add them using the search bar above.
     </div>
     <spinner v-if="this.$store.state.songs.isLoading" />

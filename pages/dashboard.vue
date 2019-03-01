@@ -61,7 +61,7 @@ export default {
   width: 60px;
 }
 
-@media only screen and (max-width: 1028px) {
+@media only screen and (max-width: $breakpoint-medium) {
   .dashboard-section {
     margin: 12px;
   }

@@ -17,11 +17,14 @@ export default ({ store, route }) => {
 
   window.onNuxtReady(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user && route.fullPath === '/') {
-        localStorage.setItem('user', JSON.stringify(user))
-      } else if (!user && route.fullPath !== '/') {
-        localStorage.setItem('user', null)
+      if (!user && route.fullPath !== '/') {
         store.dispatch('auth/redirectUser', '/')
+      }
+
+      if (!user) {
+        localStorage.setItem('user', null)
+      } else {
+        localStorage.setItem('user', JSON.stringify(user))
       }
     })
   })
