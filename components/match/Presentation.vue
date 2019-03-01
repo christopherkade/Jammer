@@ -4,9 +4,10 @@
       Find the songs you and your friends can jam to 🎹
     </h1>
     <h2 class="match-subtitle">
-      Make sure everyone has a Jammer account and fills their <nuxt-link class="link" to="/songs">song list</nuxt-link>.
-      <br>
-      Coming soon. ⚙
+      Make sure everyone has a Jammer account and fills their
+      <nuxt-link class="link" to="/songs">
+        song list
+      </nuxt-link>.
     </h2>
   </div>
 </template>
