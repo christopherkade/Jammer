@@ -2,7 +2,7 @@
   <nav v-if="displayNav" class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link to="/dashboard" class="navbar-item">
-        <img src="/icons/logo-dark.svg">
+        <img src="~/static/icons/logo-dark.svg">
       </nuxt-link>
 
       <a

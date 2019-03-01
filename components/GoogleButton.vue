@@ -1,6 +1,6 @@
 <template>
-  <div id="customBtn" @click="googleSignIn">
-    <span class="icon" />
+  <div class="customBtn" @click="googleSignIn">
+    <img class="icon" src="~/static/icons/search.svg"></img>
     <span class="buttonText">Connect with Google</span>
   </div>
 </template>
@@ -16,11 +16,15 @@ export default {
 </script>
 
 <style>
-#customBtn {
-  display: inline-block;
+.customBtn {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  text-align: center;
+  margin: 0 auto;
   background: white;
   color: #1e1e24;
-  width: auto;
+  width: 200px;
   padding: 8px;
   border-radius: 4px;
   border: thin solid #888;
@@ -34,12 +38,11 @@ span.label {
   font-weight: normal;
 }
 span.icon {
-  background: url("/icons/search.svg") transparent 5px no-repeat;
   display: inline-block;
   vertical-align: middle;
   padding: 4px;
   width: 50px;
-  height: 42px;
+  height: 50px;
 }
 span.buttonText {
   display: inline-block;

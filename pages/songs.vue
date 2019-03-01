@@ -31,7 +31,7 @@ export default {
      */
     userInput(input) {
       if (input.length > 0) {
-        const root = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=${process.env.SONG_API_KEY}&format=json`
+        const root = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=${process.env.SONG_API_KEY}&format=json`
         axios.get(`${root}`)
           .then((res) => {
             this.data = res.data.results.trackmatches.track
