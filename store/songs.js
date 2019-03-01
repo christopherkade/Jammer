@@ -33,7 +33,10 @@ export const actions = {
     firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
       commit('setSongs', newSongList)
     }).catch((err) => {
-      console.error('Error while deleting a song: ', err)
+      commit('notification/setNotification', {
+        message: err,
+        type: 'is-danger'
+      })
     })
   },
   /**
@@ -48,7 +51,10 @@ export const actions = {
       commit('setSongs', songList)
       commit('setLoading', false)
     }).catch((err) => {
-      console.error('Error while getting songs: ', err)
+      commit('notification/setNotification', {
+        message: err,
+        type: 'is-danger'
+      })
     })
   },
   deleteSong({ rootState, getters, commit }, delSong) {
@@ -58,7 +64,10 @@ export const actions = {
     firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
       commit('setSongs', newSongList)
     }).catch((err) => {
-      console.error('Error while deleting a song: ', err)
+      commit('notification/setNotification', {
+        message: err,
+        type: 'is-danger'
+      })
     })
   }
 }

@@ -23,10 +23,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <nuxt-link to="/profile" class="button button-profile">
-              Profile
-            </nuxt-link>
-            <a class="button" @click="$store.dispatch('auth/signOut')">
+            <a class="button button-signout" @click="$store.dispatch('auth/signOut')">
               Sign out
             </a>
           </div>
@@ -52,7 +49,7 @@ export default {
 </script>
 
 <style>
-.button-profile {
+.button-signout {
   background-color: #EF3054;
   color: white;
 }

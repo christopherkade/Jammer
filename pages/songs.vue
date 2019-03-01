@@ -22,6 +22,7 @@ export default {
     }
   },
   mounted() {
+    // Fix call stack bug
     this.$store.dispatch('songs/getSongs', this.$store.state.user)
   },
   methods: {
@@ -30,13 +31,18 @@ export default {
      */
     userInput(input) {
       // TODO: Env variable with API key
-      const root = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=db88a0670af42e11576ad65143a23914&format=json`
-      axios.get(`${root}`)
-        .then((res) => {
-          this.data = res.data.results.trackmatches.track
-        }).catch((err) => {
-          console.error('ERROR', err)
-        })
+      if (input.length > 0) {
+        const root = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${input}&api_key=db88a0670af42e11576ad65143a23914&format=json`
+        axios.get(`${root}`)
+          .then((res) => {
+            this.data = res.data.results.trackmatches.track
+          }).catch((err) => {
+            this.$store.commit('notification/setNotification', {
+              message: err,
+              type: 'is-danger'
+            })
+          })
+      }
     },
     /**
      * Calls the action to save the selected song with Firebase

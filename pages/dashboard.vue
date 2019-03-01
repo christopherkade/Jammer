@@ -2,9 +2,13 @@
   <section class="section dashboard-section">
     <div class="columns is-centered is-multiline nav-columns">
       <nuxt-link to="/songs" class="column is-2 dashboard-button">
+        <img class="logo-music" src="~/static/icons/music.svg"></img>
+        <br>
         Manage my songs
       </nuxt-link>
       <nuxt-link to="/match" class="column is-2 dashboard-button">
+        <img class="dashboard-logo logo-guitar" src="~/static/icons/guitar.svg"></img>
+        <br>
         Find matches
       </nuxt-link>
     </div>
@@ -36,21 +40,25 @@ export default {
 }
 
 .dashboard-button {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   text-align: center;
   font-size: 1.8em;
   color: white;
   background-color: #EF3054;
   margin: 12px;
-  height: 150px;
   border-radius: 4px;
 }
 
 .dashboard-button:hover {
   color: white;
   opacity: .75;
+}
+
+.logo-music {
+  width: 50px;
+}
+
+.logo-guitar {
+  width: 60px;
 }
 
 @media only screen and (max-width: 1028px) {

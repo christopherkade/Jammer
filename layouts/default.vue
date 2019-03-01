@@ -2,15 +2,18 @@
   <div class="layout-wrapper">
     <navbar />
     <nuxt />
+    <notification />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import Notification from '@/components/Notification.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Notification
   }
 }
 </script>

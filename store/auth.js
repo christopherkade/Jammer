@@ -6,16 +6,14 @@ export const state = () => ({
 })
 
 export const actions = {
-  googleSignIn(context) {
+  googleSignIn({ commit }) {
     const provider = new firebase.auth.GoogleAuthProvider()
 
     firebase.auth().signInWithPopup(provider).catch(function (error) {
-      /* eslint-disable */
-      const errorCode = error.code
-      const errorMessage = error.message
-      const email = error.email
-      const credential = error.credential
-      // TODO: Handle sign in error
+      commit('notification/setNotification', {
+        message: error.message,
+        type: 'is-danger'
+      })
     })
   },
   signOut(context) {
