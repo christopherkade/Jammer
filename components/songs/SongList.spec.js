@@ -3,7 +3,7 @@ import cmp from './SongList.vue'
 import cmpChild1 from './Song.vue'
 import cmpChild2 from '@/components/Spinner.vue'
 
-describe('[UNIT] Testing the Song component', () => {
+describe('[UNIT] Testing the /songs Song List component', () => {
   let wrapper
 
   config.mocks.$store = {

@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import cmp from './Song.vue'
 
-describe('[UNIT] Testing the /songs Song component', () => {
+describe('[UNIT] Testing the /match Song component', () => {
   let wrapper
 
   beforeEach(() => {

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[UNIT] Testing the Notification component Snapshot testing 1`] = `
+"<article class=\\"message notification is-danger\\"><button aria-label=\\"delete\\" class=\\"delete\\"></button> <div class=\\"message-body\\">
+    notificationMock
+  </div></article>"
+`;

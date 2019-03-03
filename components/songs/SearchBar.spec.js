@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import cmp from './SearchBar.vue'
 
-describe('[UNIT] Testing the Search Bar component', () => {
+describe('[UNIT] Testing the /songs Search Bar component', () => {
   let wrapper
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[UNIT] Testing the Song component Snapshot testing 1`] = `
+exports[`[UNIT] Testing the /songs Song List component Snapshot testing 1`] = `
 "<div><div><h1 class=\\"songs-title\\">
       My songs
     </h1> <div><song-stub song=\\"[object Object]\\"></song-stub></div></div> <!----></div>"

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[UNIT] Testing the /match Email List component Snapshot testing 1`] = `
+"<div class=\\"columns\\"><div><div class=\\"column\\"><span class=\\"email-tag\\">
+        mockedEmail1
+        <button aria-label=\\"delete\\" class=\\"delete\\"></button></span></div></div></div>"
+`;
