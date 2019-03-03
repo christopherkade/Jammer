@@ -18,4 +18,4 @@ $ npm start
 
 ## Contributing
 
-For detailed explanation on how to contribute to Jammer, check out the [contribution guidelines](https://github.com/christopherkade/Jammer/blob/master/CONTRIBUTING.md).
+For a detailed explanation on how to contribute to Jammer, check out the [contribution guidelines](https://github.com/christopherkade/Jammer/blob/master/CONTRIBUTING.md).
