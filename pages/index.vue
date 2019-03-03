@@ -9,7 +9,7 @@
 
     <google-button />
     <h1 class="contribute">
-      Like Jammer? Contribute to it on <a class="link" href="https://github.com/christopherkade/Jammer">Github</a>
+      Like Jammer? Contribute to it on <a class="link" href="https://github.com/christopherkade/Jammer/blob/master/CONTRIBUTING.md">Github</a>
       <br>
       Made with ♥ by <a class="link" href="https://twitter.com/christo_kade">Christopher Kade</a>
     </h1>
