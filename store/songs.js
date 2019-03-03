@@ -30,14 +30,20 @@ export const mutations = {
 
 export const actions = {
   addSong({ rootState, getters, commit }, song) {
-    if (song.mbid || song.artist) {
+    // If the song doesn't have an artist, the user didn't select from the DD list
+    if (song.artist) {
       const user = rootState.auth.user
       const newSongList = getters.getUserSongs.slice()
 
       // Check if the song selected is already in our list
       let duplicate = false
       newSongList.map((listSong) => {
-        if (listSong.mbid === song.mbid) {
+        // Sometimes lastfm songs don't have an id, if not, use the name and artist to check for duplicates
+        if (listSong.mbid) {
+          if (listSong.mbid === song.mbid) {
+            duplicate = true
+          }
+        } else if (listSong.name === song.name && listSong.artist === song.artist) {
           duplicate = true
         }
       })
