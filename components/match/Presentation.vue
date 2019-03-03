@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.$store.state.match.matchUsers.length === 0">
+  <div v-if="this.$store.getters['match/getUsers'].length === 1">
     <h1 class="match-title">
       Find the songs you and your friends can jam to 🎹
     </h1>
@@ -8,9 +8,6 @@
       <nuxt-link class="link" to="/songs">
         song list
       </nuxt-link>
-      <br>
-      <br>
-      Only 1 on 1 musician comparison is supported for now, multiple user comparison should be coming soon
     </h2>
   </div>
 </template>

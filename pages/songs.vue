@@ -21,8 +21,8 @@ export default {
       data: []
     }
   },
-  mounted() {
-    this.$store.dispatch('songs/getSongs', this.$store.state.user)
+  beforeCreate() {
+    this.$store.dispatch('songs/getSongs', this.$store.getters['auth/getUser'])
   },
   methods: {
     /**

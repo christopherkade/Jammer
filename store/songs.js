@@ -22,13 +22,16 @@ export const mutations = {
   },
   setLoading(state, loading) {
     state.isLoading = loading
+  },
+  resetSongs(state) {
+    state.songs = []
   }
 }
 
 export const actions = {
   addSong({ rootState, getters, commit }, song) {
     if (song.name) {
-      const user = rootState.user
+      const user = rootState.auth.user
       const newSongList = getters.getUserSongs.slice()
 
       // Check if the song selected is already in our list
@@ -68,11 +71,13 @@ export const actions = {
   getSongs({ commit }, user) {
     commit('setLoading', true)
     firebase.firestore().collection('song-lists').doc(user.uid).get().then((snapshot) => {
-      // On first connection
+      // On first connection, creates document and returns since no songs are available on it
       if (!snapshot.data()) {
         return
       }
+      // Get song list data
       const songList = snapshot.data().list
+      // Save it in our state
       commit('setSongs', songList)
     }).catch((err) => {
       commit('notification/setNotification', {
@@ -82,7 +87,7 @@ export const actions = {
     }).finally(() => commit('setLoading', false))
   },
   deleteSong({ rootState, getters, commit }, delSong) {
-    const user = rootState.user
+    const user = rootState.auth.user
     const currentSongList = getters.getUserSongs.slice()
     const newSongList = currentSongList.filter(song => song.mbid !== delSong.mbid).slice()
     firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {

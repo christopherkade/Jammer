@@ -4,7 +4,7 @@
       <div class="control search-control">
         <input
           v-model="search.name"
-          placeholder="Add a new song"
+          placeholder="Search for a song"
           class="input"
           type="text"
           @input="onChange"

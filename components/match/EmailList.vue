@@ -1,10 +1,12 @@
 <template>
   <div class="columns">
-    <div v-for="user in userList" :key="user.email" class="column">
-      <span class="email-tag">
-        {{ user.email }}
-        <button class="delete" aria-label="delete" @click="$store.commit('match/removeMatchEmail', user.email)" />
-      </span>
+    <div v-for="user in userList" :key="user.email">
+      <div v-if="user.email !== userEmail" class="column">
+        <span class="email-tag">
+          {{ user.email }}
+          <button class="delete" aria-label="delete" @click="handleUserRemoval(user)" />
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -13,7 +15,16 @@
 export default {
   computed: {
     userList() {
-      return this.$store.state.match.matchUsers
+      return this.$store.getters['match/getUsers']
+    },
+    userEmail() {
+      return this.$store.getters['auth/getUser'].email
+    }
+  },
+  methods: {
+    handleUserRemoval(user) {
+      this.$store.commit('match/removeMatchEmail', user.email)
+      this.$store.commit('match/updateMatchingSongs')
     }
   }
 }

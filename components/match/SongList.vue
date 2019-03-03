@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="this.$store.state.match.matchUsers.length > 0">
+    <div v-if="this.$store.getters['match/getUsers'].length > 1">
       <h1 class="songs-title">
         Matched songs
       </h1>
@@ -8,7 +8,7 @@
         <song :song="song" />
       </div>
     </div>
-    <div v-if="this.$store.state.match.matchingSongs.length === 0 && this.$store.state.match.matchUsers.length !== 0" class="not-found">
+    <div v-if="this.$store.getters['match/getMatchingSongs'].length === 0 && this.$store.getters['match/getUsers'].length > 1" class="not-found">
       No matching songs found, time to improvise !
     </div>
   </div>

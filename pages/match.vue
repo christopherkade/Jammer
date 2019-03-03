@@ -3,7 +3,7 @@
     <search-bar @select="onUserInput" />
     <email-list />
     <presentation />
-    <song-list :songs="$store.state.match.matchingSongs" />
+    <song-list :songs="$store.getters['match/getMatchingSongs']" />
   </section>
 </template>
 
@@ -21,16 +21,19 @@ export default {
     SongList
   },
   middleware: 'auth',
-  created() {
-    if (this.$store.state.songs.songs.length === 0) {
-      this.$store.dispatch('songs/getSongs', this.$store.state.user, { root: true })
+  beforeCreate() {
+    // Get the current user's data if we don't have it
+    if (this.$store.getters['match/getUsers'].length === 0) {
+      this.$store.dispatch('match/getMatchUser', this.$store.getters['auth/getUser'].email)
     }
   },
   methods: {
+    /**
+     * Called after the user inputs an email
+     * Calls an action to get all the matching songs
+     */
     onUserInput(email) {
-      // TODO: Handle multiple users
-      // Get user's songs based on email
-      this.$store.dispatch('match/getMatchSongs', email)
+      this.$store.dispatch('match/getMatchUser', email)
     }
   }
 }

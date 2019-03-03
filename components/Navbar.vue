@@ -23,6 +23,11 @@
     <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-end">
         <div class="navbar-item">
+          <span>
+            Welcome, {{ displayName }}
+          </span>
+        </div>
+        <div class="navbar-item">
           <div class="buttons">
             <a class="button button-signout" @click="$store.dispatch('auth/signOut')">
               Sign out
@@ -44,6 +49,16 @@ export default {
   computed: {
     displayNav() {
       return (this.$route.fullPath !== '/')
+    },
+    displayName() {
+      const user = this.$store.getters['auth/getUser']
+
+      if (!user) return
+
+      if (!user.displayName) {
+        return this.$store.getters['auth/getUser'].email
+      }
+      return user.displayName
     }
   }
 }

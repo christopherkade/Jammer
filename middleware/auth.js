@@ -1,7 +1,7 @@
-export default function ({ store, redirect }) {
+export default function ({ store }) {
   if (!localStorage.getItem('user')) {
     store.dispatch('auth/redirectUser', '/')
-  } else if (!store.state.user) {
-    store.state.user = JSON.parse(localStorage.getItem('user'))
+  } else if (!store.user) {
+    store.commit('auth/setUser', JSON.parse(localStorage.getItem('user')))
   }
 }

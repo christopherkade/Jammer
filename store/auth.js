@@ -5,12 +5,26 @@ export const state = () => ({
   user: {}
 })
 
+export const mutations = {
+  setUser(state, user) {
+    state.user = user
+  },
+  resetUser(state) {
+    state.user = {}
+  }
+}
+
+export const getters = {
+  getUser(state) {
+    return state.user
+  }
+}
+
 export const actions = {
   googleSignIn({ commit, dispatch }) {
     const provider = new firebase.auth.GoogleAuthProvider()
 
     firebase.auth().signInWithPopup(provider).then((res) => {
-      state.user = res.user
       dispatch('redirectUser', '/dashboard')
     }).catch((error) => {
       commit('notification/setNotification', {
@@ -19,9 +33,10 @@ export const actions = {
       }, { root: true })
     })
   },
-  signOut({ dispatch }) {
-    state.user = null
+  signOut({ dispatch, commit }) {
     firebase.auth().signOut().then(() => {
+      commit('resetUser')
+      commit('songs/resetSongs', [], { root: true })
       dispatch('redirectUser', '/')
     })
   },
