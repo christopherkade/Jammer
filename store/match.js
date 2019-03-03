@@ -71,6 +71,10 @@ export const mutations = {
       .map(o => o.obj)
 
     state.matchingSongs = intersect
+  },
+  resetMatch(state) {
+    state.users = []
+    state.matchingSongs = []
   }
 }
 

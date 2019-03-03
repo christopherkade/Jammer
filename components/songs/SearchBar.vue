@@ -116,8 +116,13 @@ export default {
       }
     },
     onEnter() {
-      // When no results are shown
-      if (this.results.length === 0) return
+      if (!this.search.name) return
+
+      // When no results are shown, close the pannel
+      if (this.results.length === 0 && this.isOpen) {
+        this.isOpen = false
+        return
+      }
 
       // When the arrow keys were not used
       if (this.arrowCounter === -1) {
@@ -128,6 +133,8 @@ export default {
       }
       this.isOpen = false
       this.arrowCounter = -1
+      this.$emit('select', this.search)
+      this.search = {}
     },
     handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {

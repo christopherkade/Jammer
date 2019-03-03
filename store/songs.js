@@ -30,7 +30,7 @@ export const mutations = {
 
 export const actions = {
   addSong({ rootState, getters, commit }, song) {
-    if (song.name) {
+    if (song.mbid || song.artist) {
       const user = rootState.auth.user
       const newSongList = getters.getUserSongs.slice()
 
@@ -61,6 +61,11 @@ export const actions = {
           type: 'is-danger'
         }, { root: true })
       })
+    } else {
+      commit('notification/setNotification', {
+        message: 'Please select a song in the drop-down list',
+        type: 'is-info'
+      }, { root: true })
     }
   },
   /**

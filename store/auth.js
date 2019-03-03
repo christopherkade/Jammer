@@ -35,8 +35,10 @@ export const actions = {
   },
   signOut({ dispatch, commit }) {
     firebase.auth().signOut().then(() => {
+      // On sign out, reset the application's state
       commit('resetUser')
-      commit('songs/resetSongs', [], { root: true })
+      commit('songs/resetSongs', null, { root: true })
+      commit('match/resetMatch', null, { root: true })
       dispatch('redirectUser', '/')
     })
   },
