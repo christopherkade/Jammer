@@ -2,7 +2,8 @@
 export const state = () => ({
   message: '',
   isShown: false,
-  type: 'is-danger'
+  type: 'is-danger',
+  duration: 3000
 })
 
 export const getters = {
@@ -15,10 +16,11 @@ export const getters = {
 }
 
 export const mutations = {
-  setNotification(state, { message, type }) {
+  setNotification(state, { message, type, duration = 3000 }) {
     state.message = message
     state.type = type
     state.isShown = true
+    state.duration = duration
   },
   setIsShown(state, isShown) {
     state.isShown = isShown

@@ -1,7 +1,6 @@
 <template>
   <transition name="fade">
     <article v-if="isShown" class="message notification" :class="classType">
-      <button class="delete" aria-label="delete" @click="$store.commit('notification/setIsShown', false)" />
       <div class="message-body">
         {{ message }}
       </div>
@@ -22,12 +21,15 @@ export default {
     },
     message() {
       return this.$store.state.notification.message
+    },
+    duration() {
+      return this.$store.state.notification.duration
     }
   },
   watch: {
     isShown(bool) {
       if (bool) {
-        setTimeout(() => this.$store.commit('notification/setIsShown', false), 3000)
+        setTimeout(() => this.$store.commit('notification/setIsShown', false), this.duration)
       }
     }
   }
@@ -40,7 +42,6 @@ export default {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 500px;
   padding: 0;
 }
 

@@ -61,6 +61,11 @@ export const actions = {
 
       firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList, owner: user.email }, { merge: true }).then((snapshot) => {
         commit('setSongs', newSongList)
+        commit('notification/setNotification', {
+          message: `${song.name} (${song.artist}) added`,
+          type: 'is-success',
+          duration: 1000
+        }, { root: true })
       }).catch((err) => {
         commit('notification/setNotification', {
           message: err,
@@ -103,6 +108,11 @@ export const actions = {
     const newSongList = currentSongList.filter(song => song.mbid !== delSong.mbid).slice()
     firebase.firestore().collection('song-lists').doc(user.uid).set({ list: newSongList }, { merge: true }).then((snapshot) => {
       commit('setSongs', newSongList)
+      commit('notification/setNotification', {
+        message: `${delSong.name} (${delSong.artist}) deleted`,
+        type: 'is-danger',
+        duration: 1000
+      }, { root: true })
     }).catch((err) => {
       commit('notification/setNotification', {
         message: err,
