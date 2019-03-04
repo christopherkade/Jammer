@@ -1,6 +1,6 @@
 <template>
   <div class="customBtn" @click="googleSignIn">
-    <img class="icon" src="~/static/icons/search.svg"></img>
+    <img class="icon" src="~/static/icons/google.svg"></img>
     <span class="buttonText">Connect with Google</span>
   </div>
 </template>
