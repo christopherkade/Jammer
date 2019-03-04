@@ -86,7 +86,7 @@ export default {
 .nav-button {
   background-color: $secondary;
   color: $text;
-  padding: 20px;
+  padding: 20px 25px;
 }
 
 .navbar-item.nav-logo {
@@ -108,10 +108,6 @@ export default {
 
 .nav-icon {
   margin-right: 8px;
-}
-
-.nuxt-link-active {
-  opacity: .8;
 }
 
 .sign-out {

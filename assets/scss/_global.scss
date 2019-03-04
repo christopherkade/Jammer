@@ -69,6 +69,10 @@ section {
   width: 100%
 }
 
+.nuxt-link-active {
+  opacity: .8;
+}
+
 @media only screen and (max-width: $breakpoint-medium) {
   .search-control {
     margin: 0;
