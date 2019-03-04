@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[UNIT] Testing the /match Search Bar component Snapshot testing 1`] = `
-"<div class=\\"match-search\\"><div class=\\"field has-addons\\"><div class=\\"control search-control\\"><input type=\\"email\\" placeholder=\\"Musician's Email\\" class=\\"input\\"></div> <div class=\\"control\\"><a class=\\"button is-rounded search-button\\">
+"<div class=\\"match-search\\"><div class=\\"field has-addons\\"><div class=\\"control search-control\\"><input type=\\"email\\" placeholder=\\"Musician's Email\\" class=\\"input input-searchbar\\"></div> <div class=\\"control\\"><a class=\\"button search-button\\">
         +
       </a></div></div></div>"
 `;
