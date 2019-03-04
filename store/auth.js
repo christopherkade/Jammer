@@ -25,7 +25,7 @@ export const actions = {
     const provider = new firebase.auth.GoogleAuthProvider()
 
     firebase.auth().signInWithPopup(provider).then((res) => {
-      dispatch('redirectUser', '/dashboard')
+      dispatch('redirectUser', '/songs')
     }).catch((error) => {
       commit('notification/setNotification', {
         message: error.message,
