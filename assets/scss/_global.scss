@@ -73,6 +73,10 @@ section {
   opacity: .8;
 }
 
+.button {
+  border-radius: 12px;
+}
+
 @media only screen and (max-width: $breakpoint-medium) {
   .search-control {
     margin: 0;
