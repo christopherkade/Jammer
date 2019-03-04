@@ -110,7 +110,7 @@ export const actions = {
       commit('setSongs', newSongList)
       commit('notification/setNotification', {
         message: `${delSong.name} (${delSong.artist}) deleted`,
-        type: 'is-danger',
+        type: 'is-success',
         duration: 1000
       }, { root: true })
     }).catch((err) => {

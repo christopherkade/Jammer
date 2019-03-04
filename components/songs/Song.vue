@@ -34,29 +34,9 @@ export default {
 </script>
 
 <style lang="scss">
-.song-card {
-  background-color: white;
-  color: $secondary;
-  margin: 12px;
-  border-radius: 4px;
-  display: flex;
-  width: auto;
-  flex-direction: row;
-}
-
-.song-title {
-  padding: 20px;
-  width: 100%;
-  font-size: 1.5em;
-}
-
-.song-artist {
-  color: $primary;
-}
-
 .delete-song {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   background-color: $secondary;
   color: $text;
   font-size: 1em;
@@ -66,5 +46,12 @@ export default {
 .delete-song:hover {
   cursor: pointer;
   opacity: .75;
+}
+
+@media only screen and (max-width: $breakpoint-medium) {
+  .delete-song {
+    font-size: .9em;
+    padding: 45px 8px;
+  }
 }
 </style>

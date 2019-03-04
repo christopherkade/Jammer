@@ -19,25 +19,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.song-card {
-  background-color: white;
-  color: $secondary;
-  margin: 12px;
-  border-radius: 4px;
-  display: flex;
-  width: auto;
-  flex-direction: row;
-}
-
-.song-title {
-  padding: 20px;
-  width: 100%;
-  font-size: 1.5em;
-}
-
-.song-artist {
-  color: $primary;
-}
-</style>

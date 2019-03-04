@@ -18,3 +18,67 @@ section {
   opacity: .8;
   color: white;
 }
+
+.song-card {
+  background-color: white;
+  color: $secondary;
+  margin: 12px;
+  border-radius: 20px;
+  display: flex;
+  width: auto;
+  flex-direction: row;
+}
+
+.song-title {
+  padding: 20px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.song-artist {
+  color: $primary;
+}
+
+.input-searchbar {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-left: 24px;
+}
+
+.search-button {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 20px;
+  padding-bottom: 8px;
+  margin-right: 100px;
+}
+
+.search-control {
+  width: 100%;
+  margin-left: 100px;
+}
+
+.autocomplete-results {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #eeeeee;
+  height: 120px;
+  overflow: auto;
+  position: absolute;
+  width: 100%
+}
+
+@media only screen and (max-width: $breakpoint-medium) {
+  .search-control {
+    margin: 0;
+  }
+
+  .search-button {
+    margin: 0;
+  }
+
+  .song-title {
+    font-size: 1.25em;
+  }
+}

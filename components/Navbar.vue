@@ -47,7 +47,8 @@
           </span>
         </div>
         <div class="navbar-item">
-          <a class="button nav-button sign-out" @click="$store.dispatch('auth/signOut')">
+          <a class="button nav-button" @click="$store.dispatch('auth/signOut')">
+            <img class="nav-icon sign-out" src="~/static/icons/sign-out.svg"></img>
             Sign out
           </a>
         </div>
@@ -114,7 +115,7 @@ export default {
 }
 
 .sign-out {
-  background-color: $primary;
+  width: 20px;
 }
 
 @media only screen and (max-width: $breakpoint-medium) {

@@ -2,10 +2,10 @@
   <div class="match-search">
     <div class="field has-addons">
       <div class="control search-control">
-        <input v-model="emailInput" class="input" type="email" placeholder="Musician's Email" @keydown.enter="handleUserInput">
+        <input v-model="emailInput" class="input input-searchbar" type="email" placeholder="Musician's Email" @keydown.enter="handleUserInput">
       </div>
       <div class="control">
-        <a class="button is-rounded search-button" @click="handleUserInput">
+        <a class="button search-button" @click="handleUserInput">
           +
         </a>
       </div>
@@ -45,10 +45,6 @@ export default {
 .match-search {
   text-align: center;
   margin-bottom: 40px;
-}
-
-.search-control {
-  width: 100%;
 }
 
 .search-button {

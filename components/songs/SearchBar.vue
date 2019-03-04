@@ -5,7 +5,7 @@
         <input
           v-model="search.name"
           placeholder="Search for a song"
-          class="input"
+          class="input input-searchbar"
           type="text"
           @input="onChange"
           @keydown.down="onArrowDown"
@@ -36,7 +36,7 @@
         </ul>
       </div>
       <div class="control">
-        <a class="button is-rounded search-button" @click="handleSongSelection">
+        <a class="button search-button" @click="handleSongSelection">
           +
         </a>
       </div>
@@ -156,25 +156,11 @@ export default {
   text-align: center;
 }
 
-.autocomplete-results {
-  padding: 0;
-  margin: 0;
-  border: 1px solid #eeeeee;
-  height: 120px;
-  overflow: auto;
-  position: absolute;
-  width: 100%
-}
-
 .autocomplete-result {
   list-style: none;
   text-align: left;
   padding: 4px 2px;
   cursor: pointer;
-}
-
-.search-control {
-  width: 100%;
 }
 
 .autocomplete-result:hover {
