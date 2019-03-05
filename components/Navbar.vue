@@ -27,14 +27,14 @@
     <div id="navbar-target" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
         <div class="navbar-item">
-          <nuxt-link to="/songs" class="button nav-button">
+          <nuxt-link id="btn" to="/songs" class="button nav-button">
             <img class="nav-icon" src="~/static/icons/music.svg"></img>
             Songs
           </nuxt-link>
         </div>
 
         <div class="navbar-item">
-          <nuxt-link to="/match" class="button nav-button">
+          <nuxt-link id="btn" to="/match" class="button nav-button">
             <img class="nav-icon" src="~/static/icons/guitar.svg"></img>
             Match
           </nuxt-link>
@@ -47,7 +47,7 @@
           </span>
         </div>
         <div class="navbar-item">
-          <a class="button nav-button" @click="$store.dispatch('auth/signOut')">
+          <a id="btn" class="button nav-button" @click="$store.dispatch('auth/signOut')">
             <img class="nav-icon sign-out" src="~/static/icons/sign-out.svg"></img>
             Sign out
           </a>

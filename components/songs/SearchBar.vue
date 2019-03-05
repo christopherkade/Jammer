@@ -3,6 +3,7 @@
     <div class="field has-addons">
       <div class="control search-control">
         <input
+          id="input"
           v-model="search.name"
           placeholder="Search for a song"
           class="input input-searchbar"

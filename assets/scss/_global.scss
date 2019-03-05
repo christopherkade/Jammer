@@ -1,3 +1,5 @@
+// GLOBAL STYLES
+
 section {
   color: white;
 }
@@ -10,8 +12,19 @@ section {
   color: $secondary;
 }
 
-.button:focus {
+#btn {
+  border-color: transparent;
+  box-shadow: none;
   color: white;
+}
+
+#btn:hover {
+  color: white;
+}
+
+#input {
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .button:hover {

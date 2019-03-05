@@ -2,7 +2,14 @@
   <div class="match-search">
     <div class="field has-addons">
       <div class="control search-control">
-        <input v-model="emailInput" class="input input-searchbar" type="email" placeholder="Musician's Email" @keydown.enter="handleUserInput">
+        <input
+          id="input"
+          v-model="emailInput"
+          class="input input-searchbar"
+          type="email"
+          placeholder="Musician's Email"
+          @keydown.enter="handleUserInput"
+        >
       </div>
       <div class="control">
         <a class="button search-button" @click="handleUserInput">
