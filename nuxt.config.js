@@ -50,7 +50,10 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/bulma',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-127876951-2'
+    }]
   ],
 
   styleResources: {
