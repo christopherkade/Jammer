@@ -64,5 +64,9 @@ export default {
   .contribute {
     display: none;
   }
+
+  .landing-container {
+    margin-top: 15vh;
+  }
 }
 </style>

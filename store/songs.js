@@ -3,8 +3,7 @@ require('firebase/firestore')
 
 export const state = () => ({
   songs: [],
-  isLoading: false,
-  dbRef: null
+  isLoading: false
 })
 
 export const getters = {
@@ -29,6 +28,11 @@ export const mutations = {
 }
 
 export const actions = {
+  /**
+   * Pushes the new song in our firebase datastore
+   * @param {*} params
+   * @param {*} song
+   */
   addSong({ rootState, getters, commit }, song) {
     // If the song doesn't have an artist, the user didn't select from the DD list
     if (song.artist) {
@@ -51,7 +55,7 @@ export const actions = {
       // If it is, display a notification and abort the action
       if (duplicate) {
         commit('notification/setNotification', {
-          message: "The song you've selected is already in your list",
+          message: `${song.name} (${song.artist}) is already in your list`,
           type: 'is-info'
         }, { root: true })
         return
@@ -102,6 +106,11 @@ export const actions = {
       }, { root: true })
     }).finally(() => commit('setLoading', false))
   },
+  /**
+   * Deletes a given song from our firebase datastore
+   * @param {*} params
+   * @param {*} delSong
+   */
   deleteSong({ rootState, getters, commit }, delSong) {
     const user = rootState.auth.user
     const currentSongList = getters.getUserSongs.slice()

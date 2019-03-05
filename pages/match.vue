@@ -21,9 +21,15 @@ export default {
     SongList
   },
   middleware: 'auth',
-  beforeCreate() {
+  data() {
+    return {
+      users: this.$store.getters['match/getUsers'],
+      currentUser: this.$store.getters['auth/getUser']
+    }
+  },
+  created() {
     // Get the current user's data if we don't have it
-    if (this.$store.getters['match/getUsers'].length === 0) {
+    if (this.users.length === 0) {
       this.$store.dispatch('match/getMatchUser', this.$store.getters['auth/getUser'].email)
     }
   },
@@ -33,6 +39,25 @@ export default {
      * Calls an action to get all the matching songs
      */
     onUserInput(email) {
+      // Check if the email is the current user's
+      if (email === this.currentUser.email) {
+        this.$store.commit('notification/setNotification', {
+          message: 'Why input your own email? 🤔',
+          type: 'is-danger'
+        }, { root: true })
+        return
+      }
+
+      // Check for duplicate emails
+      const duplicate = this.users.find(user => user.email === email)
+      if (duplicate) {
+        this.$store.commit('notification/setNotification', {
+          message: `${email} is already in your list`,
+          type: 'is-danger'
+        })
+        return
+      }
+
       this.$store.dispatch('match/getMatchUser', email)
     }
   }

@@ -1,5 +1,4 @@
 const firebase = require('firebase/app')
-require('firebase/auth')
 require('firebase/firestore')
 
 export const state = () => ({
@@ -72,6 +71,10 @@ export const mutations = {
 
     state.matchingSongs = intersect
   },
+  /**
+   * Resets the match store data
+   * @param {*} state
+   */
   resetMatch(state) {
     state.users = []
     state.matchingSongs = []
@@ -85,15 +88,6 @@ export const actions = {
    * @param {*} email
    */
   getMatchUser({ commit, rootState, state }, email) {
-    // In case the user inputed their own email
-    if (email === rootState.auth.user.email && state.users.length >= 1) {
-      commit('notification/setNotification', {
-        message: 'Why input your own email? 🤔',
-        type: 'is-danger'
-      }, { root: true })
-      return
-    }
-
     const songsRef = firebase.firestore().collection('song-lists')
 
     songsRef.where('owner', '==', email).get().then((snapshot) => {
